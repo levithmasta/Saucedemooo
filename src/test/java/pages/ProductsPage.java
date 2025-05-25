@@ -16,7 +16,7 @@ public class ProductsPage extends BasePage {
         super(driver);
     }
 
-    @Step("Проверка названия товара")
+    @Step("Проверка названия страницы")
     public String getTitle() {
         return driver.findElement(title).getText();
     }
@@ -46,9 +46,4 @@ public class ProductsPage extends BasePage {
         driver.findElement(By.xpath("//*[@data-test='shopping-cart-link']")).click();
     }
 
-    public void ale() {
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
-
-    }
 }
