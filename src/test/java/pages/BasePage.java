@@ -10,7 +10,6 @@ public abstract class BasePage {
     WebDriver driver;
     WebDriverWait wait;
     public static final String BASE_URL = PropertyReader.getProperty("saucedemooo.url");
-
     public BasePage(WebDriver driver) {
         this.driver = driver;
         wait=new WebDriverWait(driver, Duration.ofSeconds(20));

@@ -10,7 +10,6 @@ public class LoginPage extends BasePage {
     private static final By PASSWORD_INPUT = By.id("password");
     private static final By LOGIN_BUTTON = By.id("login-button");
     private final By errorSign = By.xpath("//*[@data-test='error']");
-
     public LoginPage(WebDriver driver) {
         super(driver);
     }

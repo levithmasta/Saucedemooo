@@ -1,16 +1,13 @@
 package tests;
 
-import enums.PageNaming;
 import io.qameta.allure.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import user.UserFactory;
-import utils.AllureUtils;
 
 import static enums.PageNaming.PRODUCTS;
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 import static user.UserFactory.withAdminPermission;
-import static utils.AllureUtils.takeScreenshot;
 
 public class LoginTest extends BaseTest {
 

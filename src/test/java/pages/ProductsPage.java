@@ -1,7 +1,6 @@
 package pages;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,7 +10,6 @@ public class ProductsPage extends BasePage {
     private final By title2 = By.xpath("//*[text()='Products']");
     public static final String ADD_TO_CART_BUTTON_PATTERN
             = "//div[text()='%s']//ancestor::div[@class='inventory_item']//button";
-
     public ProductsPage(WebDriver driver) {
         super(driver);
     }
@@ -45,5 +43,4 @@ public class ProductsPage extends BasePage {
     public void openCart() {
         driver.findElement(By.xpath("//*[@data-test='shopping-cart-link']")).click();
     }
-
 }

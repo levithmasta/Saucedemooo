@@ -2,9 +2,8 @@ package tests;
 
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
-import user.UserFactory;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 import static user.UserFactory.withAdminPermission;
 
 public class AddGoodsToCartTest extends BaseTest {

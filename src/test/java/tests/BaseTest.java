@@ -15,6 +15,7 @@ import utils.PropertyReader;
 import utils.TestListener;
 
 import java.util.concurrent.TimeUnit;
+
 @Listeners(TestListener.class)
 public class BaseTest {
     public WebDriver driver;
@@ -39,7 +40,6 @@ public class BaseTest {
             WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
         }
-
         driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
         context.setAttribute("driver", driver);
         loginPage = new LoginPage(driver);
@@ -49,9 +49,10 @@ public class BaseTest {
         user = PropertyReader.getProperty("saucedemooo.user");
         password = PropertyReader.getProperty("saucedemooo.password");
     }
-@Step("Закрытие")
+
+    @Step("Закрытие")
     @AfterMethod
     public void close() {
-        //driver.quit();
+        driver.quit();
     }
 }
