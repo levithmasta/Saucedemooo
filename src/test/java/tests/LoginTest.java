@@ -8,6 +8,7 @@ import static enums.PageNaming.PRODUCTS;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static user.UserFactory.withAdminPermission;
+import static utils.AllureUtils.takeScreenshot;
 
 public class LoginTest extends BaseTest {
 
@@ -27,13 +28,13 @@ public class LoginTest extends BaseTest {
         assertTrue(productsPage.titleIsDisplayed());
     }
 
-    @DataProvider(name="incorrectLoginDate")
+    @DataProvider(name = "incorrectLoginDate")
     public Object[][] loginData() {
-       return new Object[][] {
-               {"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."},
-               {"", "secret_sauce", "Epic sadface: Username is required"},
-               {"standard_user", "secret_suce", "Epic sadface: Username and password do not match any user in this service"}
-       };
+        return new Object[][]{
+                {"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."},
+                {"", "secret_sauce", "Epic sadface: Username is required"},
+                {"standard_user", "secret_suce", "Epic sadface: Username and password do not match any user in this service"}
+        };
     }
 
     @Epic("Модуль логина интернет магазина")

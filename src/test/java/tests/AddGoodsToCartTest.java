@@ -16,14 +16,15 @@ public class AddGoodsToCartTest extends BaseTest {
     @Issue("Saucedemooo")
     @Test(description = "Проверяем, что товары добавлены в корзину")
     public void checkGoodsInCart() {
-        loginPage.open();
-        loginPage.login(withAdminPermission());
-        productsPage.isOpen();
-        productsPage.addToCart(0);
-        productsPage.addToCart(2);
-        productsPage.addToCart(3);
-        productsPage.openCart();
-        assertEquals(cartPage.getProductsNames().size(), 3);
+        int actual = loginPage.open()
+                .login(withAdminPermission())
+                .isOpen()
+                .addToCart(0)
+                .addToCart(2)
+                .addToCart(3)
+                .openCart()
+                .getProductsNames()
+                .size();
+        assertEquals(actual,3);
     }
 }
-

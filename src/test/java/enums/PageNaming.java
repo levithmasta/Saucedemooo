@@ -13,6 +13,3 @@ public enum PageNaming {
         return displayName;
     }
 }
-
-
-

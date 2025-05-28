@@ -27,20 +27,20 @@ public class BaseTest {
 
     @Parameters({"browser"})
     @BeforeMethod
-    @Step("Открытие")
+    @Step("Открытие браузера")
     public void setup(@Optional("chrome") String browser, ITestContext context) {
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized");
-            options.addArguments("headless");
+            //options.addArguments("headless");
             options.addArguments("--guest");
             driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
         }
-        driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
+         driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
         context.setAttribute("driver", driver);
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
@@ -50,9 +50,9 @@ public class BaseTest {
         password = PropertyReader.getProperty("saucedemooo.password");
     }
 
-    @Step("Закрытие")
+    @Step("Закрытие браузера")
     @AfterMethod
     public void close() {
-        driver.quit();
+        //driver.quit();
     }
 }
