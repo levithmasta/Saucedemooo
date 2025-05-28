@@ -22,8 +22,8 @@ public class LoginTest extends BaseTest {
     @Flaky
     @Test(description = "проверка верной авторизации")
     public void correctLogin() {
-        loginPage.open();
-        loginPage.login(withAdminPermission());
+        loginPage.open()
+                .login(withAdminPermission());
         assertEquals(productsPage.getTitle(), PRODUCTS.getDisplayName());
         assertTrue(productsPage.titleIsDisplayed());
     }
@@ -46,10 +46,10 @@ public class LoginTest extends BaseTest {
     @Issue("Saucedemooo")
     @Test(dataProvider = "incorrectLoginDate")
     public void incorrectLogin(String user, String pass, String errorMsg) {
-        loginPage.open();
-        loginPage.fillLoginInput(user);
-        loginPage.fillPasswordInput(pass);
-        loginPage.clickSubmitBtn();
+        loginPage.open()
+                .fillLoginInput(user)
+                .fillPasswordInput(pass)
+                .clickSubmitBtn();
         assertEquals(loginPage.getErrorsMsg(), errorMsg);
     }
 }

@@ -28,17 +28,20 @@ public class LoginPage extends BasePage {
         return new ProductsPage(driver);
     }
 
-    public void fillLoginInput(String user) {
+    public LoginPage fillLoginInput(String user) {
         driver.findElement(USERNAME_INPUT).sendKeys(user);
+        return this;
     }
 
-    public void fillPasswordInput(String password) {
+    public LoginPage fillPasswordInput(String password) {
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
+        return this;
     }
 
     @Step("Нажатие на кнопку Login")
-    public void clickSubmitBtn() {
+    public LoginPage clickSubmitBtn() {
         driver.findElement(LOGIN_BUTTON).submit();
+        return this;
     }
 
     public String getErrorsMsg() {
